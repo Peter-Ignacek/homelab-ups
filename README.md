@@ -22,9 +22,7 @@ Power and UPS monitoring in my homelab.
 - UPS 01: APC Back-UPS XS 700U connected to UGREEN NAS
 
 ## Documentation
-- [overview](ups-01-ugreen-apc/overview.md)
-- [UPS-Monitoring-Test](ups-01-ugreen-apc/UPS-Monitoring-Test.md)
-- [Troubleshooting](ups-01-ugreen-apc/troubleshooting.md)
+
 - [UPS 1](ups-01-ugreen-apc)
 
 ## Scripts
