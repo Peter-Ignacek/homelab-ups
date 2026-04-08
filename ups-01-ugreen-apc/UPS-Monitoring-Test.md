@@ -1,66 +1,68 @@
 # UPS Monitoring (UGREEN NAS)
 
-## 🎯 Cel
-Sprawdzenie:
-- czy skrypt działa po restarcie NAS
-- czy UPS poprawnie raportuje status
-- ile trwały przerwy w zasilaniu
+## 🎯 Purpose
+
+Verifyig:
+
+the monitoring script runs after NAS reboot
+the UPS correctly reports its status
+power outages are detected and measured
 
 ---
 
-## 🔁 Test po restarcie NAS
+## 🔁 🔁 Post-Reboot Check
 
-Po restarcie sprawdź czy skrypt działa:
+After rebooting the NAS, verify that the script is running:
 
 ```bash
 ps | grep ups-monitor
 ````
-Oczekiwany wynik:
+Expected result:
 
 proces ups-monitor.sh jest widoczny
 
-⚡ Sprawdzenie statusu UPS
+⚡ UPS Status Check
 ```
 upsc ups0@localhost | grep ups.status
 ````
 
-Statusy:
+Status values:
 
-OL = prąd jest (Online)
-OB = brak prądu (On Battery)
+OL = Online (power is available)
+OB = On Battery (power outage)
 
-📜 Historia przerw w zasilaniu
+📜 Power Outage History
 
-Podgląd ostatnich wpisów:
+View the latest log entries:
 ````
 tail -20 /home/Piotr/ups-events.log
 ````
-Tylko zdarzenia zasilania:
+Filter only power-related events:
 ````
 grep "POWER" /home/Piotr/ups-events.log
 ````
-⏱️ Przykład logu
+⏱️ Example Log
 
 2026-04-08 18:52:07 - MONITOR STARTED - current UPS status: OL
 2026-04-08 19:10:02 - POWER LOST
 2026-04-08 19:18:44 - POWER RESTORED - outage lasted 8m 42s
 
-🧠 Uwagi
+🧠 Notes
+If the NAS shuts down during a power outage:
+→ the outage duration is measured until the NAS restarts
+If the UPS keeps the NAS running:
+→ the outage duration is accurate
 
-jeśli NAS się wyłączy podczas braku prądu:
-czas przerwy liczony jest do momentu restartu NAS
-jeśli UPS podtrzyma NAS:
-czas jest dokładny
 
-🔎 Jak sprawdzić realny czas działania
 
-Użyj:
+🔎 Check Actual Runtime
+
+Use:
 ````
 ps -eo pid,etime,cmd | grep ups-monitor
 ````
-👉 zobaczysz coś typu:
+Example output:
 
 1738156  00:15:23 /home/Piotr/ups-monitor.sh
 
-To jest:
-👉 ETIME = realny czas działania
+👉 ETIME = actual runtime of the script
