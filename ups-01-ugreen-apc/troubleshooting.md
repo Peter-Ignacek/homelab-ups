@@ -177,6 +177,7 @@ Sprawdzenie:
 ps | grep ups-monitor
 `````
 
+<img width="707" height="204" alt="image" src="https://github.com/user-attachments/assets/29dc4721-46a4-4ea2-af0c-a9bb10d0fda1" />
 
 
 
