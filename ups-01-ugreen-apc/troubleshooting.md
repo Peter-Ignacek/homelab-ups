@@ -187,54 +187,64 @@ ps | grep ups-monitor
 
 ### Docelowo (NAJWAŻNIEJSZE)
 
-Chcesz żeby to działało zawsze, nawet po restarcie NAS:
+🚀 Autostart (Important)
 
-👉 musimy dodać autostart
+The goal is to make sure the script starts automatically after every NAS reboot. 
 
-🔧 Najprościej (cron)
+👉 Autostart
 
-Sprawdź:
+🔧 Option 1 — Cron (Preferred if available)
+
+First, check whether crontab is available:
 ````
 crontab -l
 ````
-Jeśli działa → wpisz:
+If it works, edit the user crontab:
 ````
 crontab -e
 ````
-i dodaj na końcu:
+Add this line at the end:
 ````
 @reboot /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
 ````
 
-Sprawdź czy działa
+Then verify it:
+````
 crontab -l
-
-Powinno pokazać:
+````
+Expected output:
 
 @reboot /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
 <img width="439" height="90" alt="image" src="https://github.com/user-attachments/assets/7b1febf7-6c27-47c6-bb68-ee3128f74559" />
-niestety nie dziala.
 
-UGREEN blokuje crontab dla usera
-(Permission denied /var/spool/cron)
 
-To normalne w takich systemach — nie masz pełnych uprawnień.
+❌ Problem
 
-✅ ROZWIĄZANIE (pewne i działa)
+On UGREEN NAS, this method did not work.
 
-Zrobimy autostart przez rc.local — to działa praktycznie zawsze.
+The system blocks user crontab access, returning an error such as:
 
-🔧 KROK 1 — sprawdź czy istnieje
+Permission denied: /var/spool/cron
+
+This is normal on some restricted NAS systems where the user does not have full cron permissions.
+
+✅ Working Solution — rc.local
+
+Since crontab is blocked, a reliable workaround is to start the script from rc.local.
+
+This method works on boot and is typically more dependable on restricted systems like UGREEN NAS.
+
+🔧 Step 1 — Check whether rc.local exists
 ````
 ls -l /etc/rc.local
-```
+`````
+Step 2 — Edit rc.local
+````
 sudo nano /etc/rc.local
 ````
-Na samym dole, pod tym:
+At the very bottom of the file, add this line before exit 0:
 
-done
-
-dopisz dokładnie:
+The end of the file should look like this:
 ````
 /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
 
@@ -243,7 +253,9 @@ exit 0
 
 <img width="1343" height="369" alt="image" src="https://github.com/user-attachments/assets/3a433b57-2fa6-4fd5-b946-707a5692069d" />
 
-Po wyjściu od razu sprawdź:
+Step 3 — Verify the change
+
+After saving the file, check the last lines immediately:
 ````
 tail -10 /etc/rc.local
 ````
