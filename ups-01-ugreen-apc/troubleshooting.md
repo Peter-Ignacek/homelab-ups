@@ -1,3 +1,7 @@
+❗ Initial Issue
+
+Error encountered:
+
 ```bash
 Error: Unknown UPS
 ````
@@ -41,11 +45,13 @@ the message Init SSL without certificate database appeared, but did not block fu
 <img width="913" height="1059" alt="image" src="https://github.com/user-attachments/assets/4661e9ae-cd9c-4b58-a972-b3a14381601e" />
 
 
-### Tworzenie  własnego logu o zaniku i powrotu prądu.
+### 📝 Custom Power Event Logging Script
+
+Create the script:
 ````
 nano /home/Piotr/ups-monitor.sh
 ````
-Wklej to:
+Paste the following:
 ````
 #!/bin/sh
 
@@ -132,47 +138,47 @@ while true; do
     sleep 5
 done
 ````
-5. Nadaj prawa
+5. 🔐 Make Script Executable
 ````
 chmod +x /home/Piotr/ups-monitor.sh
 ````
-7. Sprawdź, czy plik jest cały
-
-To ważne. Wpisz:
+6.Verify Script Integrity
 ````
 cat /home/Piotr/ups-monitor.sh
 ````
 
-Na końcu musi być ostatnia linia:
+Ensure the file ends with:
 
 done
 
-7. Uruchom testowo
+7. Test Run (Foreground)
 ````
 /home/Piotr/ups-monitor.sh
 ````
 Skrypt będzie działał „na pierwszym planie”, więc terminal jakby się zawiesi — to normalne.
 
-8. W drugim oknie SSH sprawdź log
+8. Monitor Logs
+
+In another SSH session:
 ````
 tail -f /home/Piotr/ups-events.log
 ````
-Powinieneś zobaczyć coś typu:
+Example:
 ````
 2026-04-08 14:35:10 - MONITOR STARTED - current UPS status: OL
 ````
-❗ Problem tej metody
+###❗ Limitation
 
-Jak zamkniesz terminal → skrypt się wyłączy ❌
+If you close the terminal → the script stops ❌
 
-### uruchomić w tle
+▶️ Run in Background
 
 ````
 nohup /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
 ````
 👉 teraz działa w tle
 
-Sprawdzenie:
+Check:
 ````
 ps | grep ups-monitor
 `````
