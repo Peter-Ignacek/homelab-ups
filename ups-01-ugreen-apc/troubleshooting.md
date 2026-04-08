@@ -161,6 +161,22 @@ Powinieneś zobaczyć coś typu:
 ````
 2026-04-08 14:35:10 - MONITOR STARTED - current UPS status: OL
 ````
+❗ Problem tej metody
+
+Jak zamkniesz terminal → skrypt się wyłączy ❌
+
+### uruchomić w tle
+
+````
+nohup /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
+````
+👉 teraz działa w tle
+
+Sprawdzenie:
+````
+ps | grep ups-monitor
+`````
+
 
 
 
