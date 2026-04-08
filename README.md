@@ -7,7 +7,7 @@ Power and UPS monitoring in my homelab.
 ## Stack
 - UGREEN NAS + APC Back-UPS XS 700U (01)
 - UNIFI DREAM Machine + APC Back-UPS XS 700U (02)
-- Proxmox Intel U200 + APC Back-UPS XS 700U (03)
+- Proxmox Intel U7 155 + APC Back-UPS XS 700U (03)
 - NUT (Network UPS Tools)
 - Shell scripts for logging power events
 
