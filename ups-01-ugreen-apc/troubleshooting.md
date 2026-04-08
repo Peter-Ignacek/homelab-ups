@@ -132,8 +132,35 @@ while true; do
     sleep 5
 done
 ````
+5. Nadaj prawa
+````
+chmod +x /home/Piotr/ups-monitor.sh
+````
+7. Sprawdź, czy plik jest cały
 
+To ważne. Wpisz:
+````
+cat /home/Piotr/ups-monitor.sh
+````
 
+Na końcu musi być ostatnia linia:
+
+done
+
+7. Uruchom testowo
+````
+/home/Piotr/ups-monitor.sh
+````
+Skrypt będzie działał „na pierwszym planie”, więc terminal jakby się zawiesi — to normalne.
+
+8. W drugim oknie SSH sprawdź log
+````
+tail -f /home/Piotr/ups-events.log
+````
+Powinieneś zobaczyć coś typu:
+````
+2026-04-08 14:35:10 - MONITOR STARTED - current UPS status: OL
+````
 
 
 
