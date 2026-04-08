@@ -25,6 +25,7 @@ Power and UPS monitoring in my homelab.
 - [overview](ups-01-ugreen-apc/overview.md)
 - [UPS-Monitoring-Test](ups-01-ugreen-apc/UPS-Monitoring-Test.md)
 - [Troubleshooting](ups-01-ugreen-apc/troubleshooting.md)
+- [UPS 1](ups-01-ugreen-apc)
 
 ## Scripts
 - [`scripts/ups-monitor.sh`](scripts/ups-monitor.sh)
