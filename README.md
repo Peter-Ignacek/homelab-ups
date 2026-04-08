@@ -24,7 +24,7 @@ Power and UPS monitoring in my homelab.
 ## Documentation
 - [overview](https://github.com/Peter-Ignacek/homelab-ups/blob/main/ups-01-ugreen-apc/overview.md)
 - [UPS 01 – UGREEN + APC Back-UPS XS 700U](docs/ups-01-ugreen-apc-backups-xs700u.md)
-- [Troubleshooting](docs/troubleshooting.md)
+- [Troubleshooting](dups-01-ugreen-apc/troubleshooting.md)
 
 ## Scripts
 - [`scripts/ups-monitor.sh`](scripts/ups-monitor.sh)
