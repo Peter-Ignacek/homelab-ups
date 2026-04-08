@@ -51,3 +51,16 @@ jeśli NAS się wyłączy podczas braku prądu:
 czas przerwy liczony jest do momentu restartu NAS
 jeśli UPS podtrzyma NAS:
 czas jest dokładny
+
+🔎 Jak sprawdzić realny czas działania
+
+Użyj:
+````
+ps -eo pid,etime,cmd | grep ups-monitor
+````
+👉 zobaczysz coś typu:
+
+1738156  00:15:23 /home/Piotr/ups-monitor.sh
+
+To jest:
+👉 ETIME = realny czas działania
