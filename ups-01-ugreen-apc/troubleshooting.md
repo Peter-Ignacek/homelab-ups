@@ -200,9 +200,46 @@ i dodaj na końcu:
 @reboot /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
 ````
 
+Sprawdź czy działa
+crontab -l
 
-<img width="1332" height="1092" alt="image" src="https://github.com/user-attachments/assets/459df285-e8d0-4861-b20b-8c536bae1078" />
+Powinno pokazać:
 
+@reboot /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
+<img width="439" height="90" alt="image" src="https://github.com/user-attachments/assets/7b1febf7-6c27-47c6-bb68-ee3128f74559" />
+niestety nie dziala.
 
+UGREEN blokuje crontab dla usera
+(Permission denied /var/spool/cron)
 
+To normalne w takich systemach — nie masz pełnych uprawnień.
+
+✅ ROZWIĄZANIE (pewne i działa)
+
+Zrobimy autostart przez rc.local — to działa praktycznie zawsze.
+
+🔧 KROK 1 — sprawdź czy istnieje
+````
+ls -l /etc/rc.local
+```
+sudo nano /etc/rc.local
+````
+Na samym dole, pod tym:
+
+done
+
+dopisz dokładnie:
+````
+/home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
+
+exit 0
+````
+
+<img width="1343" height="369" alt="image" src="https://github.com/user-attachments/assets/3a433b57-2fa6-4fd5-b946-707a5692069d" />
+
+Po wyjściu od razu sprawdź:
+````
+tail -10 /etc/rc.local
+````
+<img width="761" height="336" alt="image" src="https://github.com/user-attachments/assets/f2239d26-ab5e-42f6-91b2-ae50d8c9e511" />
 
