@@ -1,7 +1,3 @@
-worzenie własnego logu o zaniku i powrotu prądu.
-nano /home/Piotr/ups-monitor.sh
-Wklej to:
-
 #!/bin/sh
 
 UPS="ups0@localhost"
@@ -85,13 +81,4 @@ while true; do
     fi
 
     sleep 5
-done
-Nadaj prawa
-chmod +x /home/Piotr/ups-monitor.sh
-Sprawdź, czy plik jest cały
-To ważne. Wpisz:
-
-cat /home/Piotr/ups-monitor.sh
-Na końcu musi być ostatnia linia:
-
 done
