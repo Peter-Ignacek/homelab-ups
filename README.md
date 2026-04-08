@@ -23,7 +23,7 @@ Power and UPS monitoring in my homelab.
 
 ## Documentation
 - [overview](ups-01-ugreen-apc/overview.md)
-- [UPS 01 – UGREEN + APC Back-UPS XS 700U](docs/ups-01-ugreen-apc-backups-xs700u.md)
+- [UPS-Monitoring-Test(ups-01-ugreen-apc/UPS-Monitoring-Test.md)
 - [Troubleshooting](ups-01-ugreen-apc/troubleshooting.md)
 
 ## Scripts
