@@ -39,3 +39,9 @@ OB = on battery
 the message Init SSL without certificate database appeared, but did not block functionality
 
 <img width="913" height="1059" alt="image" src="https://github.com/user-attachments/assets/4661e9ae-cd9c-4b58-a972-b3a14381601e" />
+
+
+### Tworzenie  własnego logu o zaniku i powrotu prądu.
+````
+nano /home/Piotr/ups-monitor.sh
+````
