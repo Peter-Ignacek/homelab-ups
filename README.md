@@ -27,3 +27,19 @@ Power and UPS monitoring in my homelab.
 
 ## Scripts
 - [`scripts/ups-monitor.sh`](scripts/ups-monitor.sh)
+🧩 Why a Custom Script?
+
+The default UPS tools provide real-time status, but they do not keep a simple, persistent history of power outages.
+
+To solve this, a custom monitoring script was created to:
+
+detect power loss (OB) and power restore (OL) events
+measure outage duration
+store events in a readable log file
+survive system reboots and continue tracking
+
+This makes it possible to quickly verify:
+
+when a power outage occurred
+how long it lasted
+whether the UPS successfully kept the NAS running
