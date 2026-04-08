@@ -179,7 +179,29 @@ ps | grep ups-monitor
 
 <img width="707" height="204" alt="image" src="https://github.com/user-attachments/assets/29dc4721-46a4-4ea2-af0c-a9bb10d0fda1" />
 
+### Docelowo (NAJWAŻNIEJSZE)
 
+Chcesz żeby to działało zawsze, nawet po restarcie NAS:
+
+👉 musimy dodać autostart
+
+🔧 Najprościej (cron)
+
+Sprawdź:
+````
+crontab -l
+````
+Jeśli działa → wpisz:
+````
+crontab -e
+````
+i dodaj na końcu:
+````
+@reboot /home/Piotr/ups-monitor.sh >/dev/null 2>&1 &
+````
+
+
+<img width="1332" height="1092" alt="image" src="https://github.com/user-attachments/assets/459df285-e8d0-4861-b20b-8c536bae1078" />
 
 
 
