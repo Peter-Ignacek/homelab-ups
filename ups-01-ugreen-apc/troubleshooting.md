@@ -13,9 +13,9 @@ upsc ups@localhost
 journalctl | grep ups
 ````
 
-Key discovery
+🔍 Discovery
 
-Listing UPS names showed:
+Listing available UPS devices:
 ````
 upsc -l localhost
 ````
