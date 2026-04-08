@@ -46,7 +46,7 @@ the message Init SSL without certificate database appeared, but did not block fu
 nano /home/Piotr/ups-monitor.sh
 ````
 Wklej to:
-
+````
 #!/bin/sh
 
 UPS="ups0@localhost"
@@ -131,6 +131,7 @@ while true; do
 
     sleep 5
 done
+````
 
 
 
